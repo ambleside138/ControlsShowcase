@@ -63,7 +63,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.4*" SharedSizeGroup="ID" />
                     <ColumnDefinition Width="0.2*" SharedSizeGroup="NAME" />
-                    <ColumnDefinition Width="0.6*" />
+                    <ColumnDefinition Width="0.6*" SharedSizeGroup="Memo" />
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Text="{Binding Id}" />
