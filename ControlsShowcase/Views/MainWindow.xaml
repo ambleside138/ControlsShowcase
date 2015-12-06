@@ -57,6 +57,22 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <DataTemplate x:Key="ListBoxItemTemplateKey">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.4*" SharedSizeGroup="ID" />
+                    <ColumnDefinition Width="0.2*" SharedSizeGroup="NAME" />
+                    <ColumnDefinition Width="0.6*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="{Binding Id}" />
+
+                <TextBox Grid.Column="1" Text="{Binding Name}"/>
+
+                <TextBox Grid.Column="2" Text="{Binding Memo}" />
+            </Grid>
+        </DataTemplate>
     </controls:MetroWindow.Resources>
     
     <Window.DataContext>
@@ -104,7 +120,7 @@
 							 Fill="{DynamicResource ActiveForegroundBrushKey}" />
                 </controls:CaptionIcon>
                 <TextBlock Grid.Column="1"
-						   Text="{Binding Title}"
+						   Text="ControlsShowcase"
 						   TextTrimming="CharacterEllipsis"
 						   Foreground="{DynamicResource ForegroundBrushKey}"
 						   FontFamily="Segoe UI Light"
@@ -168,8 +184,51 @@
                 </StackPanel>
 
             </TabItem>
+            <!--Expander END-->
+            
+            
+            <!--ListBox-->
+            <TabItem Header="ListBox">
+                <ScrollViewer Margin="8">
+                    <StackPanel Width="300" HorizontalAlignment="Left">
+                        <TextBlock Text="Gridレイアウトが崩れる件" />
+                        <TextBlock Text="ListBoxItem内でGridパネルを使用すると×" Margin="0,16,0,0" />
+                        <ListBox ItemsSource="{Binding Staffs}"
+                                 ItemTemplate="{StaticResource ListBoxItemTemplateKey}">
+
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                        </ListBox>
+
+                        <TextBlock Text="ItemsControlなら崩れない"  Margin="0,16,0,0"/>
+                        <ItemsControl ItemsSource="{Binding Staffs}"
+                             ItemTemplate="{StaticResource ListBoxItemTemplateKey}">
+
+                        </ItemsControl>
+
+                        <TextBlock Text="IsSharedColumn=Trueの動き"  Margin="0,16,0,0"/>
+                        <ListBox ItemsSource="{Binding Staffs}"
+                                 ItemTemplate="{StaticResource ListBoxItemTemplateKey}"
+                                 Grid.IsSharedSizeScope="True">
+
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                        </ListBox>
+
+                    </StackPanel>
+
+                </ScrollViewer>
+
+            </TabItem>
         </TabControl>
 
+        <!--Footer-->
         <Grid Grid.Row="2"
 			  Background="{DynamicResource AccentBrushKey}">
             <Grid.ColumnDefinitions>
