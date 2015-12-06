@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows;
 
 using Livet;
+using MetroRadiance;
 
 namespace ControlsShowcase
 {
@@ -18,6 +19,8 @@ namespace ControlsShowcase
         {
             DispatcherHelper.UIDispatcher = Dispatcher;
             //AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
+
+            ThemeService.Current.Initialize(this, Theme.Light, Accent.Blue);
         }
 
         //集約エラーハンドラ
