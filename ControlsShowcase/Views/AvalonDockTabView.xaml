@@ -4,9 +4,47 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ControlsShowcase.Views"
+             xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
+             xmlns:v="clr-namespace:ControlsShowcase.Views"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+
+
+        <!--拝借 http://lriki.hatenablog.com/entry/2014/12/01/235751-->
+        <avalonDock:DockingManager x:Name="_dockingManager">
+            <avalonDock:LayoutRoot>
+                <avalonDock:LayoutPanel Orientation="Vertical">
+                    <avalonDock:LayoutPanel Orientation="Horizontal">
+                        <avalonDock:LayoutDocumentPane>
+                            <!-- ドキュメント1 -->
+                            <avalonDock:LayoutDocument Title="Document1">
+                                <TextBox/>
+                            </avalonDock:LayoutDocument>
+                            <!-- ドキュメント2 -->
+                            <avalonDock:LayoutDocument Title="Document2">
+                                <TextBox/>
+                            </avalonDock:LayoutDocument>
+                        </avalonDock:LayoutDocumentPane>
+                        <avalonDock:LayoutAnchorablePane DockWidth="150">
+                            <!-- ツールウィンドウ1 -->
+                            <avalonDock:LayoutAnchorable Title="ToolWindow1">
+                                <v:AvalonDockContainer />
+                            </avalonDock:LayoutAnchorable>
+                        </avalonDock:LayoutAnchorablePane>
+                    </avalonDock:LayoutPanel>
+                    <avalonDock:LayoutAnchorablePane DockHeight="100">
+                        <!-- ツールウィンドウ2 -->
+                        <avalonDock:LayoutAnchorable Title="ToolWindow2">
+                            <TextBox/>
+                        </avalonDock:LayoutAnchorable>
+                        <!-- ツールウィンドウ3 -->
+                        <avalonDock:LayoutAnchorable Title="ToolWindow3">
+                            <Button Content="Button3"/>
+                        </avalonDock:LayoutAnchorable>
+                    </avalonDock:LayoutAnchorablePane>
+                </avalonDock:LayoutPanel>
+            </avalonDock:LayoutRoot>
+        </avalonDock:DockingManager>
     </Grid>
 </UserControl>

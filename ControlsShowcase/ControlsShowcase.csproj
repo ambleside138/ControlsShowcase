@@ -114,7 +114,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AvalonDockContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AvalonDockTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChildWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -136,9 +144,16 @@
     </Compile>
     <Compile Include="Models\Model.cs" />
     <Compile Include="Models\Staff.cs" />
+    <Compile Include="ViewModels\AvalonDockContainerViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\AvalonDockContainer.xaml.cs">
+      <DependentUpon>AvalonDockContainer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AvalonDockTabView.xaml.cs">
       <DependentUpon>AvalonDockTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChildWindow.xaml.cs">
+      <DependentUpon>ChildWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ExpanderTabView.xaml.cs">
       <DependentUpon>ExpanderTabView.xaml</DependentUpon>
