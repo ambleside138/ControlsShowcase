@@ -77,17 +77,17 @@
 
         <TabControl Grid.Row="1"
                     Style="{StaticResource VerticalTabControlStyleKey}">
+            
             <TabItem Header="Expander">
                 <v:ExpanderTabView />
-
             </TabItem>
-            <!--Expander END-->
             
-            
-            <!--ListBox-->
             <TabItem Header="ListBox">
                 <v:ListBoxTabView />
+            </TabItem>
 
+            <TabItem Header="AvalonDock">
+                <v:AvalonDockTabView />
             </TabItem>
         </TabControl>
 
