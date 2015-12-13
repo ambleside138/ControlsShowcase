@@ -12,12 +12,7 @@
 					  Foreground="{DynamicResource ActiveForegroundBrushKey}"
         Title="MainWindow" Height="350" Width="525">
 
-    <controls:MetroWindow.Resources>
-        
-
-       
-    </controls:MetroWindow.Resources>
-    
+ 
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
