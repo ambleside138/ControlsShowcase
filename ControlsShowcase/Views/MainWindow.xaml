@@ -87,7 +87,7 @@
                 <v:AvalonDockTabView />
             </TabItem>
 
-            <TabItem Header="FilterTab">
+            <TabItem Header="Filter">
                 <v:FilterTabView />
             </TabItem>
         </TabControl>

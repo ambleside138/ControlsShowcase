@@ -147,6 +147,7 @@
     <Compile Include="Models\Staff.cs" />
     <Compile Include="ViewModels\AvalonDockContainerViewModel.cs" />
     <Compile Include="ViewModels\ChildWindowViewModel.cs" />
+    <Compile Include="ViewModels\CollectionSourceViewModel.cs" />
     <Compile Include="ViewModels\FilterTabViewViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\AvalonDockContainer.xaml.cs">
