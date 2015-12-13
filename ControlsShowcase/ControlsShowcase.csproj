@@ -126,6 +126,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\FilterTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ListBoxTabView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,6 +147,7 @@
     <Compile Include="Models\Staff.cs" />
     <Compile Include="ViewModels\AvalonDockContainerViewModel.cs" />
     <Compile Include="ViewModels\ChildWindowViewModel.cs" />
+    <Compile Include="ViewModels\FilterTabViewViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\AvalonDockContainer.xaml.cs">
       <DependentUpon>AvalonDockContainer.xaml</DependentUpon>
@@ -155,6 +160,9 @@
     </Compile>
     <Compile Include="Views\ExpanderTabView.xaml.cs">
       <DependentUpon>ExpanderTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FilterTabView.xaml.cs">
+      <DependentUpon>FilterTabView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ListBoxTabView.xaml.cs">
       <DependentUpon>ListBoxTabView.xaml</DependentUpon>

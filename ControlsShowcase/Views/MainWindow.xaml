@@ -1,16 +1,18 @@
 ﻿<controls:MetroWindow x:Class="ControlsShowcase.Views.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
-        xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
-        xmlns:controls="http://schemes.grabacr.net/winfx/2014/controls"
-        xmlns:v="clr-namespace:ControlsShowcase.Views"
-        xmlns:vm="clr-namespace:ControlsShowcase.ViewModels"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                      xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+                      xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
+                      xmlns:controls="http://schemes.grabacr.net/winfx/2014/controls"
+                      xmlns:v="clr-namespace:ControlsShowcase.Views"
+                      xmlns:vm="clr-namespace:ControlsShowcase.ViewModels"
                       WindowStyle="None"
                       Background="{DynamicResource ThemeBrushKey}"
 					  Foreground="{DynamicResource ActiveForegroundBrushKey}"
-        Title="MainWindow" Height="350" Width="525">
+                      Title="MainWindow"
+                      Height="350"
+                      Width="525">
 
  
     <Window.DataContext>
@@ -83,6 +85,10 @@
 
             <TabItem Header="AvalonDock">
                 <v:AvalonDockTabView />
+            </TabItem>
+
+            <TabItem Header="FilterTab">
+                <v:FilterTabView />
             </TabItem>
         </TabControl>
 
