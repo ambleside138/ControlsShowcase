@@ -15,9 +15,8 @@ using ControlsShowcase.Models;
 
 namespace ControlsShowcase.ViewModels
 {
-    public class AvalonDockContainerViewModel : ViewModel
+    public class ChildWindowViewModel : ViewModel
     {
-
         #region ShowChildWindowCommand
         private ViewModelCommand _ShowChildWindowCommand;
 
@@ -36,28 +35,6 @@ namespace ControlsShowcase.ViewModels
         public void ShowChildWindow()
         {
             Messenger.Raise(new TransitionMessage("ShowCommand"));
-        }
-        #endregion
-
-
-        #region ShowChildWindow4AvalonCommand
-        private ViewModelCommand _ShowChildWindow4AvalonCommand;
-
-        public ViewModelCommand ShowChildWindow4AvalonCommand
-        {
-            get
-            {
-                if (_ShowChildWindow4AvalonCommand == null)
-                {
-                    _ShowChildWindow4AvalonCommand = new ViewModelCommand(ShowChildWindow4Avalon);
-                }
-                return _ShowChildWindow4AvalonCommand;
-            }
-        }
-
-        public void ShowChildWindow4Avalon()
-        {
-            Messenger.Raise(new TransitionMessage("Show4AvalonCommand"));
         }
         #endregion
 

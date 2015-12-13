@@ -138,9 +138,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Behaviors\Messaging\TransitionInteraction4AvalonDockMessageAction.cs" />
     <Compile Include="Models\Model.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="ViewModels\AvalonDockContainerViewModel.cs" />
+    <Compile Include="ViewModels\ChildWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\AvalonDockContainer.xaml.cs">
       <DependentUpon>AvalonDockContainer.xaml</DependentUpon>
@@ -200,6 +202,7 @@
       <Name>Livet%28.NET4.5%29</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

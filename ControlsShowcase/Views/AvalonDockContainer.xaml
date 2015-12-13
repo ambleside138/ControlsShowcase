@@ -8,6 +8,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ControlsShowcase.Views"
              xmlns:vm="clr-namespace:ControlsShowcase.ViewModels"
+             xmlns:b="clr-namespace:ControlsShowcase.Behaviors.Messaging"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
@@ -16,6 +17,7 @@
     </UserControl.DataContext>
     
     <i:Interaction.Triggers>
+        <!--LivetのAction-->
         <l:InteractionMessageTrigger MessageKey="ShowCommand" Messenger="{Binding Messenger}">
             <!-- Window を表示するメッセージアクション -->
             <!-- AvalonDockでフローティングウィンドウ化されているときはInvokeActionOnlyWhenWindowIsActive=FalseにしないとInvokeされなくなる -->
@@ -23,13 +25,31 @@
                                                   InvokeActionOnlyWhenWindowIsActive="False"
                                                   Mode="Modal" />
         </l:InteractionMessageTrigger>
+
+        <!--CustomAction-->
+        <l:InteractionMessageTrigger MessageKey="Show4AvalonCommand" Messenger="{Binding Messenger}">
+            <!-- Window を表示するメッセージアクション -->
+            <!-- AvalonDockでフローティングウィンドウ化されているときはInvokeActionOnlyWhenWindowIsActive=FalseにしないとInvokeされなくなる -->
+            <b:TransitionInteraction4AvalonDockMessageAction WindowType="{x:Type local:ChildWindow}"
+                                                              InvokeActionOnlyWhenWindowIsActive="False"
+                                                              Mode="Modal" />
+        </l:InteractionMessageTrigger>
     </i:Interaction.Triggers>
 
     <Grid>
         <StackPanel>
-            <Button Content="Button1"
+            <TextBlock TextWrapping="Wrap" 
+                       Foreground="Black"
+                       Text="Livetに用意されているTransitionInteractionMessageActionでは、このパネルをFloatingWindowにしたときに、メインウィンドウのほうを中心にして新規ウィンドウが表示されてしまう" />
+            <Button Content="通常のTransitionInteractionMessageAction"
                     Command="{Binding ShowChildWindowCommand}"/>
-            <Button Content="Button2" />
+
+            <TextBlock Margin="0 16 0 0"
+                       TextWrapping="Wrap"
+                       Foreground="Black"
+                       Text="AvalonDock用に用意したMessageActionを使えばFloatingWindowを中心にして表示できる" />
+            <Button Content="TransitionInteraction4AvalonDockMessageAction"
+                    Command="{Binding ShowChildWindow4AvalonCommand}"/>
         </StackPanel>
     </Grid>
 </UserControl>

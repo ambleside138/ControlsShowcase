@@ -2,14 +2,41 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+        xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ControlsShowcase.Views"
+        xmlns:vm="clr-namespace:ControlsShowcase.ViewModels"
         WindowStartupLocation="CenterOwner"
         mc:Ignorable="d"
         Title="ChildWindow" Height="300" Width="300">
+
+    <Window.DataContext>
+        <vm:ChildWindowViewModel />
+    </Window.DataContext>
+    
+    <i:Interaction.Triggers>
+        <l:InteractionMessageTrigger MessageKey="ShowCommand" Messenger="{Binding Messenger}">
+            <!-- Window を表示するメッセージアクション -->
+            <!-- AvalonDockでフローティングウィンドウ化されているときはInvokeActionOnlyWhenWindowIsActive=FalseにしないとInvokeされなくなる -->
+            <l:TransitionInteractionMessageAction WindowType="{x:Type local:ChildWindow}"
+                                                  InvokeActionOnlyWhenWindowIsActive="False"
+                                                  Mode="Modal" />
+        </l:InteractionMessageTrigger>
+    </i:Interaction.Triggers>
+
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
         <TextBlock Text="Child Window" 
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"/>
-    </Grid>
+
+        <Button Grid.Row="1"
+                Command="{Binding ShowChildWindowCommand}"
+                Content="Show" />
+    </Grid> 
 </Window>
