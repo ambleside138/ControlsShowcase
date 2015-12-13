@@ -18,8 +18,9 @@
     <i:Interaction.Triggers>
         <l:InteractionMessageTrigger MessageKey="ShowCommand" Messenger="{Binding Messenger}">
             <!-- Window を表示するメッセージアクション -->
+            <!-- AvalonDockでフローティングウィンドウ化されているときはInvokeActionOnlyWhenWindowIsActive=FalseにしないとInvokeされなくなる -->
             <l:TransitionInteractionMessageAction WindowType="{x:Type local:ChildWindow}"
-                                                  IsOwned="True"
+                                                  InvokeActionOnlyWhenWindowIsActive="False"
                                                   Mode="Modal" />
         </l:InteractionMessageTrigger>
     </i:Interaction.Triggers>
