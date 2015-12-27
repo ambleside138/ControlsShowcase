@@ -98,6 +98,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\ScheduleTabView.xaml.cs">
+      <DependentUpon>ScheduleTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StringFormatTabView.xaml.cs">
+      <DependentUpon>StringFormatTabView.xaml</DependentUpon>
+    </Compile>
     <Page Include="Styles\Controls.Expander.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -172,6 +178,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\ScheduleTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StringFormatTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

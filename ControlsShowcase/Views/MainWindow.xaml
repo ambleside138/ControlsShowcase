@@ -90,6 +90,14 @@
             <TabItem Header="Filter">
                 <v:FilterTabView />
             </TabItem>
+
+            <TabItem Header="StringFormat">
+                <v:StringFormatTabView />
+            </TabItem>
+
+            <TabItem Header="Schedule">
+                <v:ScheduleTabView />
+            </TabItem>
         </TabControl>
 
         <!--Footer-->
