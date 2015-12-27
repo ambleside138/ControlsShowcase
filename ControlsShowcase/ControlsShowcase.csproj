@@ -113,6 +113,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Behaviors\UpdateOnLostKeyboardFocusBehavior.cs" />
     <Compile Include="Behaviors\UpdateSource4DecimalBehavior.cs" />
     <Compile Include="ViewModels\StringFormatViewModel.cs" />
     <Compile Include="Views\ScheduleTabView.xaml.cs">

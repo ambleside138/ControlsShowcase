@@ -18,8 +18,8 @@ namespace ControlsShowcase.Behaviors
             base.OnAttached();
 
             AssociatedObject.TextChanged += AssociatedObject_TextChanged;
+            AssociatedObject.LostKeyboardFocus += AssociatedObject_LostKeyboardFocus;
         }
-
 
 
         protected override void OnDetaching()
@@ -27,13 +27,14 @@ namespace ControlsShowcase.Behaviors
             base.OnDetaching();
 
             AssociatedObject.TextChanged -= AssociatedObject_TextChanged;
+            AssociatedObject.LostKeyboardFocus -= AssociatedObject_LostKeyboardFocus;
         }
 
 
         private void AssociatedObject_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // 末尾が「.」のときはソースを更新しない
-            if (!string.IsNullOrEmpty(AssociatedObject.Text) && AssociatedObject.Text.EndsWith("."))
+            // 「.」を含むときはソースを更新しない
+            if (!string.IsNullOrEmpty(AssociatedObject.Text) && AssociatedObject.Text.Contains("."))
             {
                 return;
             }
@@ -41,7 +42,15 @@ namespace ControlsShowcase.Behaviors
             // 更新
             var be = AssociatedObject.GetBindingExpression(TextBox.TextProperty);
             be.UpdateSource();
-            
+           
+        }
+
+        private void AssociatedObject_LostKeyboardFocus(object sender, System.Windows.Input.KeyboardFocusChangedEventArgs e)
+        {
+            // 更新
+            var be = AssociatedObject.GetBindingExpression(TextBox.TextProperty);
+            be.UpdateSource();
+
         }
     }
 }

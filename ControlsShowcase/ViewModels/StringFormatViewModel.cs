@@ -52,9 +52,26 @@ namespace ControlsShowcase.ViewModels
         }
         #endregion
 
+        #region Sample3変更通知プロパティ
+        private decimal _Sample3;
+
+        public decimal Sample3
+        {
+            get
+            { return _Sample3; }
+            set
+            { 
+                if (_Sample3 == value)
+                    return;
+                _Sample3 = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
         public StringFormatViewModel()
         {
-            Sample1 = 1.00M;/// 1.235556M;
+            Sample1 = 1M;/// 1.235556M;
             Sample2 = 3.45M;
         }
     }

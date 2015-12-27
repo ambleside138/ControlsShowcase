@@ -16,8 +16,17 @@
     </UserControl.DataContext>
 
     <StackPanel>
+        <ToolBar>
+            <Button Content="TEST" />
+        </ToolBar> 
+        
         <TextBlock Text="単にStringFormat=#.##とするだけだと問題なし" />
-        <TextBox Text="{Binding Sample1, StringFormat=##.##}" />
+        <TextBox Text="{Binding Sample1, StringFormat=#.##}" >
+            <i:Interaction.Behaviors>
+                <b:UpdateOnLostKeyboardFocusBehavior />
+            </i:Interaction.Behaviors>
+        </TextBox>
+        <TextBlock Text="{Binding Sample1}" />
 
         <TextBlock Margin="0 16 0 0" Text="UpdateSourceTrigger=PropertyChangedとすると小数が入力できなくなる" />
         <TextBox Text="{Binding Sample2, StringFormat=#.##, UpdateSourceTrigger=PropertyChanged}" />
@@ -28,6 +37,9 @@
                 <b:UpdateSource4DecimalBehavior />
             </i:Interaction.Behaviors>
         </TextBox>
+
+        <TextBlock Margin="0 16 0 0" Text="StringFormat指定がない場合もダメぽ" />
+        <TextBox Text="{Binding Sample3, UpdateSourceTrigger=PropertyChanged}" />
     </StackPanel>
     
 
