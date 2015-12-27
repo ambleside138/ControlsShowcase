@@ -3,10 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
              xmlns:local="clr-namespace:ControlsShowcase.Views"
+             xmlns:vm="clr-namespace:ControlsShowcase.ViewModels"
+             xmlns:b="clr-namespace:ControlsShowcase.Behaviors"
+             Foreground="{DynamicResource ForegroundBrushKey}"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
-    </Grid>
+    <UserControl.DataContext>
+        <vm:StringFormatViewModel />
+    </UserControl.DataContext>
+
+    <StackPanel>
+        <TextBlock Text="単にStringFormat=#.##とするだけだと問題なし" />
+        <TextBox Text="{Binding Sample1, StringFormat=##.##}" />
+
+        <TextBlock Margin="0 16 0 0" Text="UpdateSourceTrigger=PropertyChangedとすると小数が入力できなくなる" />
+        <TextBox Text="{Binding Sample2, StringFormat=#.##, UpdateSourceTrigger=PropertyChanged}" />
+
+        <TextBlock Margin="0 16 0 0" Text="Behaviorで回避できる" />
+        <TextBox Text="{Binding Sample2, StringFormat=#.##, UpdateSourceTrigger=Explicit}" >
+            <i:Interaction.Behaviors>
+                <b:UpdateSource4DecimalBehavior />
+            </i:Interaction.Behaviors>
+        </TextBox>
+    </StackPanel>
+    
+
 </UserControl>
