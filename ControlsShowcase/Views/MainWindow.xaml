@@ -98,6 +98,10 @@
             <TabItem Header="Schedule">
                 <v:ScheduleTabView />
             </TabItem>
+
+            <TabItem Header="Popup">
+                <v:PopupLayoutTabView />
+            </TabItem>
         </TabControl>
 
         <!--Footer-->

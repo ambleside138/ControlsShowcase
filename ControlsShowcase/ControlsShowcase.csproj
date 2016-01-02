@@ -115,7 +115,11 @@
     </ApplicationDefinition>
     <Compile Include="Behaviors\UpdateOnLostKeyboardFocusBehavior.cs" />
     <Compile Include="Behaviors\UpdateSource4DecimalBehavior.cs" />
+    <Compile Include="ViewModels\PopupLayoutViewModel.cs" />
     <Compile Include="ViewModels\StringFormatViewModel.cs" />
+    <Compile Include="Views\PopupLayoutTabView.xaml.cs">
+      <DependentUpon>PopupLayoutTabView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ScheduleTabView.xaml.cs">
       <DependentUpon>ScheduleTabView.xaml</DependentUpon>
     </Compile>
@@ -196,6 +200,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\PopupLayoutTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ScheduleTabView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
