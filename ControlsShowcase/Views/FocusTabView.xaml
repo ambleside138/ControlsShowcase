@@ -1,0 +1,102 @@
+﻿<UserControl x:Class="ControlsShowcase.Views.FocusTabView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+             xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ControlsShowcase.Views"
+             mc:Ignorable="d" 
+             xmlns:vm="clr-namespace:ControlsShowcase.ViewModels"
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.DataContext>
+        <vm:FocusTabViewModel />
+    </UserControl.DataContext>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <TextBlock Text="通常のフォーカス処理" />
+            <Button Content="Focus!">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <l:LivetCallMethodAction MethodName="NormalFocusAction"
+                                                 MethodTarget="{Binding}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <TextBox>
+                <i:Interaction.Triggers>
+                    <l:InteractionMessageTrigger Messenger="{Binding Messenger}" MessageKey="FocusToTextBox" >
+                        <l:SetFocusAction />
+                    </l:InteractionMessageTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="コレクションのフォーカス処理" />
+            <StackPanel Orientation="Horizontal">
+                
+                <Button Content="AddStaffNormal"
+                        Margin="4">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <l:LivetCallMethodAction MethodName="AddStaff"
+                                                 MethodTarget="{Binding}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+
+                <Button Content="AddStaffOnDispatcherBackground"
+                        Margin="4">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <l:LivetCallMethodAction MethodName="AddStaffOnDispatcherBackground"
+                                                 MethodTarget="{Binding}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+            </StackPanel>
+
+
+            <ItemsControl ItemsSource="{Binding Staffs}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="{Binding Model.Id}" />
+
+                            <TextBox Grid.Column="1"
+                                     Text="{Binding Model.Name}" >
+                                <i:Interaction.Triggers>
+                                    <l:InteractionMessageTrigger Messenger="{Binding Messenger}" MessageKey="FocusToName">
+                                        <l:SetFocusAction />
+                                    </l:InteractionMessageTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+                          
+            
+        </StackPanel>
+    </Grid>
+</UserControl>

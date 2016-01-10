@@ -102,6 +102,10 @@
             <TabItem Header="Popup">
                 <v:PopupLayoutTabView />
             </TabItem>
+
+            <TabItem Header="Focus">
+                <v:FocusTabView />
+            </TabItem>
         </TabControl>
 
         <!--Footer-->

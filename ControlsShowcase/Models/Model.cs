@@ -10,7 +10,12 @@ namespace ControlsShowcase.Models
 {
     public class Model : NotificationObject
     {
+        private readonly ObservableCollection<Staff> _Staffs = new ObservableCollection<Staff>();
 
+        public ObservableCollection<Staff>  Staffs
+        {
+            get { return _Staffs; }
+        }
 
     } 
 }

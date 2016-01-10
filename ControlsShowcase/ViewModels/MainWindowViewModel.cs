@@ -29,8 +29,8 @@ namespace ControlsShowcase.ViewModels
 
         public MainWindowViewModel()
         {
-            _Staffs = new ObservableCollection<Staff>(Enumerable.Range(0, 3).Select(i => new Staff { Id = i, Name = "TEST" + i, Memo = "" }));
-            _Staffs.Add(new Staff { Id = 6, Name = "長い名前のサンプル", Memo = "" });
+            _Staffs = new ObservableCollection<Staff>(Enumerable.Range(0, 3).Select(i => new Staff { Name = "TEST" + i, Memo = "" }));
+            _Staffs.Add(new Staff { Name = "長い名前のサンプル", Memo = "" });
         }
 
         public void Initialize()

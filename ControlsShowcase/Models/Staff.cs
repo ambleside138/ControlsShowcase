@@ -10,6 +10,8 @@ namespace ControlsShowcase.Models
     public class Staff : NotificationObject
     {
 
+        private static int _IdGen = 0;
+
         #region Id変更通知プロパティ
         private int _Id;
 
@@ -17,13 +19,6 @@ namespace ControlsShowcase.Models
         {
             get
             { return _Id; }
-            set
-            { 
-                if (_Id == value)
-                    return;
-                _Id = value;
-                RaisePropertyChanged();
-            }
         }
         #endregion
 
@@ -61,5 +56,10 @@ namespace ControlsShowcase.Models
         }
         #endregion
 
+        public Staff()
+        {
+            _IdGen++;
+            _Id = _IdGen;
+        }
     }
 }

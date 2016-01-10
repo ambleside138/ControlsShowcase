@@ -74,7 +74,7 @@ namespace ControlsShowcase.ViewModels
 
         public FilterTabViewViewModel()
         {
-            StaffCollection = new CollectionSourceViewModel<Staff>(Enumerable.Range(1, 999).Select(i => new Staff { Id = i, Name = i + "TEST" }), s => Filter(s));
+            StaffCollection = new CollectionSourceViewModel<Staff>(Enumerable.Range(1, 999).Select(i => new Staff { Name = i + "TEST" }), s => Filter(s));
             StaffCollection.View.CurrentChanged += View_CurrentChanged;
         }
 
