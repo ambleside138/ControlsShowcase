@@ -3,9 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+             xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
              xmlns:local="clr-namespace:ControlsShowcase.Views"
              xmlns:vm="clr-namespace:ControlsShowcase.ViewModels"
+             xmlns:b="clr-namespace:ControlsShowcase.Behaviors"
              mc:Ignorable="d" 
+             Foreground="Black"
              d:DesignHeight="300" d:DesignWidth="300">
 
     <UserControl.Resources>
@@ -15,6 +20,16 @@
                 <PropertyGroupDescription PropertyName="Model.Department" />
             </CollectionViewSource.GroupDescriptions>
         </CollectionViewSource>
+
+        <DataTemplate x:Key="GroupItemHeaderTemplateKey">
+            <Border Margin="2"
+                                        Padding="4 2"
+                                        Background="DimGray">
+                <TextBlock Text="{Binding Name}"
+                                               Foreground="Snow"/>
+            </Border>
+
+        </DataTemplate>
     </UserControl.Resources>
     
     <UserControl.DataContext>
@@ -24,17 +39,12 @@
     <Grid>
         <ScrollViewer>
             <ItemsControl ItemsSource="{Binding Source={StaticResource StaffCollectionKey}}">
+                <i:Interaction.Behaviors>
+                    <b:GroupHeaderFrozenBehavior HeaderTemplate="{StaticResource GroupItemHeaderTemplateKey}" />
+                </i:Interaction.Behaviors>
+                
                 <ItemsControl.GroupStyle>
-                    <GroupStyle>
-                        <GroupStyle.HeaderTemplate>
-                            <DataTemplate>
-                                <Border Margin="1 0 1 4"
-                                        Background="DimGray">
-                                    <TextBlock Text="{Binding Name}"
-                                               Foreground="Snow"/>
-                                </Border>
-                            </DataTemplate>
-                        </GroupStyle.HeaderTemplate>
+                    <GroupStyle HeaderTemplate="{StaticResource GroupItemHeaderTemplateKey}">
                     </GroupStyle>
                 </ItemsControl.GroupStyle>
                 

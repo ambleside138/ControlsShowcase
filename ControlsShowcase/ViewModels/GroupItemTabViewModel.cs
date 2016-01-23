@@ -40,9 +40,9 @@ namespace ControlsShowcase.ViewModels
 
         public GroupItemTabViewModel()
         {
-            AddStaffs("管理部", 8);
-            AddStaffs("営業部", 20);
-            AddStaffs("開発部", 20);
+            AddStaffs("管理部", 4);
+            AddStaffs("営業部", 10);
+            AddStaffs("開発部", 8);
             
         }
 
