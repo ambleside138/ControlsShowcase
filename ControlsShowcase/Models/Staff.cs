@@ -56,6 +56,24 @@ namespace ControlsShowcase.Models
         }
         #endregion
 
+        #region Department変更通知プロパティ
+        private string _Department;
+
+        public string Department
+        {
+            get
+            { return _Department; }
+            set
+            { 
+                if (_Department == value)
+                    return;
+                _Department = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
+
         public Staff()
         {
             _IdGen++;

@@ -11,7 +11,7 @@
                       Background="{DynamicResource ThemeBrushKey}"
 					  Foreground="{DynamicResource ActiveForegroundBrushKey}"
                       Title="MainWindow"
-                      Height="350"
+                      Height="550"
                       Width="525">
 
  
@@ -105,6 +105,14 @@
 
             <TabItem Header="Focus">
                 <v:FocusTabView />
+            </TabItem>
+
+            <TabItem Header="CapsLock">
+                <v:CapsLockTabView />
+            </TabItem>
+
+            <TabItem Header="GroupItem">
+                <v:GroupItemTabView />
             </TabItem>
         </TabControl>
 

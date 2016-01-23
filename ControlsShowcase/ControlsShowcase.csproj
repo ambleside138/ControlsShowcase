@@ -116,11 +116,18 @@
     <Compile Include="Behaviors\UpdateOnLostKeyboardFocusBehavior.cs" />
     <Compile Include="Behaviors\UpdateSource4DecimalBehavior.cs" />
     <Compile Include="ViewModels\FocusTabViewModel.cs" />
+    <Compile Include="ViewModels\GroupItemTabViewModel.cs" />
     <Compile Include="ViewModels\PopupLayoutViewModel.cs" />
     <Compile Include="ViewModels\StaffViewModel.cs" />
     <Compile Include="ViewModels\StringFormatViewModel.cs" />
+    <Compile Include="Views\CapsLockTabView.xaml.cs">
+      <DependentUpon>CapsLockTabView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\FocusTabView.xaml.cs">
       <DependentUpon>FocusTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GroupItemTabView.xaml.cs">
+      <DependentUpon>GroupItemTabView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PopupLayoutTabView.xaml.cs">
       <DependentUpon>PopupLayoutTabView.xaml</DependentUpon>
@@ -151,6 +158,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\CapsLockTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ChildWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -164,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\FocusTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GroupItemTabView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
