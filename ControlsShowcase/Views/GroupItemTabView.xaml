@@ -23,10 +23,10 @@
 
         <DataTemplate x:Key="GroupItemHeaderTemplateKey">
             <Border Margin="2"
-                                        Padding="4 2"
-                                        Background="DimGray">
+                    Padding="4 2"
+                    Background="DimGray">
                 <TextBlock Text="{Binding Name}"
-                                               Foreground="Snow"/>
+                           Foreground="Snow"/>
             </Border>
 
         </DataTemplate>

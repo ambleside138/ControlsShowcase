@@ -8,6 +8,8 @@ using System.Windows.Media;
 
 namespace ControlsShowcase.Controls
 {
+    // ref: http://blog.qarim.net/2013/08/16/wpf-persistent-group-headers-for-the-listbox-control/
+
     public class HeaderAdorner : Adorner
     {
         private readonly ContentControl _contentControl;
