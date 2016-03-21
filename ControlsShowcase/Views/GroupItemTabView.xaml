@@ -43,10 +43,7 @@
         </Grid.ColumnDefinitions>
         <ScrollViewer>
             <ItemsControl ItemsSource="{Binding Source={StaticResource StaffCollectionKey}}">
-                <i:Interaction.Behaviors>
-                    <b:GroupHeaderFrozenBehavior HeaderTemplate="{StaticResource GroupItemHeaderTemplateKey}" />
-                </i:Interaction.Behaviors>
-                
+
                 <ItemsControl.GroupStyle>
                     <GroupStyle HeaderTemplate="{StaticResource GroupItemHeaderTemplateKey}">
                     </GroupStyle>
