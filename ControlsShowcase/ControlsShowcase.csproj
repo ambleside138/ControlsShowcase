@@ -120,6 +120,8 @@
     <Compile Include="Utils\VisualTreeUtil.cs" />
     <Compile Include="ViewModels\FocusTabViewModel.cs" />
     <Compile Include="ViewModels\GroupItemTabViewModel.cs" />
+    <Compile Include="ViewModels\NavigateAnimationTabViewModel.cs" />
+    <Compile Include="ViewModels\NavigationPageViewModel.cs" />
     <Compile Include="ViewModels\PopupLayoutViewModel.cs" />
     <Compile Include="ViewModels\StaffViewModel.cs" />
     <Compile Include="ViewModels\StringFormatViewModel.cs" />
@@ -131,6 +133,9 @@
     </Compile>
     <Compile Include="Views\GroupItemTabView.xaml.cs">
       <DependentUpon>GroupItemTabView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NavigateAnimationTabView.xaml.cs">
+      <DependentUpon>NavigateAnimationTabView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PopupLayoutTabView.xaml.cs">
       <DependentUpon>PopupLayoutTabView.xaml</DependentUpon>
@@ -227,6 +232,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\NavigateAnimationTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PopupLayoutTabView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

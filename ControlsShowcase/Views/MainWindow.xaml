@@ -114,6 +114,10 @@
             <TabItem Header="GroupItem">
                 <v:GroupItemTabView />
             </TabItem>
+
+            <TabItem Header="NavigateAnimation">
+                <v:NavigateAnimationTabView />
+            </TabItem>
         </TabControl>
 
         <!--Footer-->
