@@ -118,6 +118,10 @@
             <TabItem Header="NavigateAnimation">
                 <v:NavigateAnimationTabView />
             </TabItem>
+
+            <TabItem Header="TemplateInputNavigation">
+                <v:TemplateInputNavigationTabView />
+            </TabItem>
         </TabControl>
 
         <!--Footer-->

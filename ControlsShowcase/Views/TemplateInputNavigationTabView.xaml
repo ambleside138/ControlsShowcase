@@ -1,0 +1,194 @@
+﻿<UserControl x:Class="ControlsShowcase.Views.TemplateInputNavigationTabView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ControlsShowcase.Views"
+             xmlns:metro="http://schemes.grabacr.net/winfx/2014/controls"
+             mc:Ignorable="d" 
+             Background="LightGray"
+             d:DesignHeight="480" d:DesignWidth="340">
+
+    <UserControl.Resources>
+
+
+
+
+
+
+
+    </UserControl.Resources>
+    
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="InputStatus">
+                <VisualState x:Name="SelectTemplate">
+                    <Storyboard>
+                        <DoubleAnimation
+                Storyboard.TargetName="SelectorGrid"
+                Storyboard.TargetProperty="(Canvas.Left)"
+                To="0"
+                Duration="0:0:0.5">
+                            <DoubleAnimation.EasingFunction>
+                                <CircleEase EasingMode="EaseOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                    </Storyboard>
+                </VisualState>
+
+                <VisualState x:Name="Select1stPlaceHolder">
+                    <Storyboard>
+                        <DoubleAnimation
+                Storyboard.TargetName="SelectorGrid"
+                Storyboard.TargetProperty="(Canvas.Left)"
+                To="-320"
+                Duration="0:0:0.5">
+                            <DoubleAnimation.EasingFunction>
+                                <CircleEase EasingMode="EaseOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                    </Storyboard>
+                </VisualState>
+
+                <VisualState x:Name="Select2ndPlaceHolder">
+                    <Storyboard>
+                        <DoubleAnimation
+                Storyboard.TargetName="SelectorGrid"
+                Storyboard.TargetProperty="(Canvas.Left)"
+                To="-640"
+                Duration="0:0:0.5">
+                            <DoubleAnimation.EasingFunction>
+                                <CircleEase EasingMode="EaseOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                    </Storyboard>
+                </VisualState>
+
+                <VisualState x:Name="Select3rdPlaceHolder">
+                    <Storyboard>
+                        <DoubleAnimation
+                Storyboard.TargetName="SelectorGrid"
+                Storyboard.TargetProperty="(Canvas.Left)"
+                To="-960"
+                Duration="0:0:0.5">
+                            <DoubleAnimation.EasingFunction>
+                                <CircleEase EasingMode="EaseOut" />
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <!--Canvas外にはみ出ないようにClipToBounds=True-->
+        <Canvas Name="BaseCanvas"
+                Background="Green"
+                ClipToBounds="True">
+
+            <Grid Name="SelectorGrid" 
+                  Canvas.Left="10"
+                  Width="1312"
+                  Height="{Binding ActualHeight, ElementName=BaseCanvas}"
+                  VerticalAlignment="Stretch">
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                
+                <!--TemplateSelector-->
+                <Grid Margin="4">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <metro:PromptTextBox Prompt="TabCode" 
+                             Width="64"
+                             HorizontalAlignment="Left"
+                             Margin="4"/>
+
+                    <TabControl VerticalContentAlignment="Stretch"
+                                Grid.Row="1"
+                            Margin="4">
+                        <TabItem Header="内服">
+
+                        </TabItem>
+
+                        <TabItem Header="頓服">
+
+                        </TabItem>
+
+                        <TabItem Header="外用">
+
+                        </TabItem>
+                    </TabControl>
+                </Grid>
+                
+                <!--1st PlaceHolderSelctor-->
+                <Grid Grid.Column="1"
+                      Margin="4">
+                    <TextBlock Text="1st PlaceHolder"
+                               FontSize="24"
+                               VerticalAlignment="Center"/>
+                </Grid>
+
+                <!--2nd PlaceHolderSelctor-->
+                <Grid Grid.Column="2"
+                      Margin="4">
+                    <TextBlock Text="2nd PlaceHolder" 
+                               FontSize="24"
+                               VerticalAlignment="Center"/>
+                </Grid>
+
+                <!--3rd PlaceHolderSelctor-->
+                <Grid Grid.Column="3"
+                      Margin="4">
+                    <TextBlock Text="3rd PlaceHolder"
+                               FontSize="24"
+                               VerticalAlignment="Center"/>
+                </Grid>
+            </Grid>
+        </Canvas>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal">
+                <Button Name="Back"
+                        Click="Back_Click">
+                    <Viewbox Width="24" Height="24">
+                        <Canvas Width="24" Height="24">
+                            <Path Data="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" Fill="DimGray" />
+                        </Canvas>
+                    </Viewbox>
+                    
+                    
+                </Button>
+
+                <Button Name="Next"
+                        Click="Next_Click">
+                    <Viewbox Width="24" Height="24">
+                        <Canvas Width="24" Height="24">
+                            <Path Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" Fill="DimGray" />
+                        </Canvas>
+                    </Viewbox>
+                </Button>
+            </StackPanel>
+            
+        </Grid>
+        
+
+    </Grid>
+</UserControl>

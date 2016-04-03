@@ -146,6 +146,9 @@
     <Compile Include="Views\StringFormatTabView.xaml.cs">
       <DependentUpon>StringFormatTabView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TemplateInputNavigationTabView.xaml.cs">
+      <DependentUpon>TemplateInputNavigationTabView.xaml</DependentUpon>
+    </Compile>
     <Page Include="Styles\Controls.Expander.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -245,6 +248,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\StringFormatTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TemplateInputNavigationTabView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
