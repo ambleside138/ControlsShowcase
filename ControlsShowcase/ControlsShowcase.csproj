@@ -123,6 +123,7 @@
     <Compile Include="ViewModels\NavigateAnimationTabViewModel.cs" />
     <Compile Include="ViewModels\NavigationPageViewModel.cs" />
     <Compile Include="ViewModels\PopupLayoutViewModel.cs" />
+    <Compile Include="ViewModels\ProgressBarTabViewModel.cs" />
     <Compile Include="ViewModels\StaffViewModel.cs" />
     <Compile Include="ViewModels\StringFormatViewModel.cs" />
     <Compile Include="Views\CapsLockTabView.xaml.cs">
@@ -140,6 +141,9 @@
     <Compile Include="Views\PopupLayoutTabView.xaml.cs">
       <DependentUpon>PopupLayoutTabView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ProgressBarTabView.xaml.cs">
+      <DependentUpon>ProgressBarTabView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ScheduleTabView.xaml.cs">
       <DependentUpon>ScheduleTabView.xaml</DependentUpon>
     </Compile>
@@ -150,6 +154,10 @@
       <DependentUpon>TemplateInputNavigationTabView.xaml</DependentUpon>
     </Compile>
     <Page Include="Styles\Controls.Expander.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Controls.ProgressBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -240,6 +248,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PopupLayoutTabView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProgressBarTabView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

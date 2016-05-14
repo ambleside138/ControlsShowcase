@@ -122,6 +122,10 @@
             <TabItem Header="TemplateInputNavigation">
                 <v:TemplateInputNavigationTabView />
             </TabItem>
+
+            <TabItem Header="ProgressBar">
+                <v:ProgressBarTabView />
+            </TabItem>
         </TabControl>
 
         <!--Footer-->
