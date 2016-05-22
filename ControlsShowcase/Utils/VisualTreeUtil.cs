@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -68,6 +69,46 @@ namespace ControlsShowcase.Utils
             }
 
             return child;
+        }
+
+
+        public static void PrintVisualTree(DependencyObject obj)
+        {
+            Debug.WriteLine("PrintVisualTree");
+            PrintVisualTreeCore(0, obj);
+        }
+
+        // VisualTreeを表示する。
+        // DependencyObjectの場合はVisualTree上の子要素も再帰的に出力していく
+        private static void PrintVisualTreeCore(int level, DependencyObject obj)
+        {
+            PrintObject(level, obj);
+            foreach (var child in GetVisualChildren(obj))
+            {
+                if (child is DependencyObject)
+                {
+                    PrintVisualTreeCore(level + 1, (DependencyObject)child);
+                }
+                else
+                {
+                    PrintObject(level + 1, child);
+                }
+            }
+        }
+
+        // VisualTreeの子要素の列挙を返す
+        private static IEnumerable<object> GetVisualChildren(DependencyObject obj)
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
+            {
+                yield return VisualTreeHelper.GetChild(obj, i);
+            }
+        }
+
+        // ToStringの結果をインデントつきで出力
+        private static void PrintObject(int level, object obj)
+        {
+            Debug.WriteLine(new string('\t', level) + obj);
         }
     }
 }

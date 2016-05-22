@@ -17,5 +17,14 @@ namespace ControlsShowcase.Models
             get { return _Staffs; }
         }
 
+
+        public void AddStaffs(string deartment, int count)
+        {
+            foreach (var oStaff in Enumerable.Range(1, count).Select(i => new Staff { Name = "スタッフ" + i }))
+            {
+                oStaff.Department = deartment;
+                Staffs.Add(oStaff);
+            }
+        }
     } 
 }
