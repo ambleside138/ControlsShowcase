@@ -1,66 +1,99 @@
 ﻿<UserControl x:Class="ControlsShowcase.Views.PopupLayoutTabView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:b="clr-namespace:ControlsShowcase.Behaviors"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
              xmlns:local="clr-namespace:ControlsShowcase.Views"
-             mc:Ignorable="d" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              Name="PopupLayoutCtrl"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             mc:Ignorable="d">
     <UserControl.Resources>
-        <Style TargetType="Popup" x:Key="rightBottom">
+        <Style x:Key="rightBottom" TargetType="Popup">
             <Setter Property="Placement" Value="Left" />
             <Setter Property="VerticalOffset" Value="{Binding PlacementTarget.ActualHeight, RelativeSource={RelativeSource Self}}" />
             <Setter Property="HorizontalOffset" Value="{Binding PlacementTarget.ActualWidth, RelativeSource={RelativeSource Self}}" />
         </Style>
     </UserControl.Resources>
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions> 
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <TextBlock Text="Placement" />
-        <Button Grid.Column="1"
-                Name="popup"
-                Content="TEST"
-                Click="popup_Click"/>
         <Popup Name="preview"
-               StaysOpen="False"
+               HorizontalOffset="{Binding ActualWidth,
+                                          ElementName=popup}"
+               Placement="Left"
                PlacementTarget="{Binding ElementName=popup}"
-               HorizontalOffset="{Binding ActualWidth, ElementName=popup}"
-               VerticalOffset="{Binding ActualHeight, ElementName=popup}"
-               Placement="Left">
+               StaysOpen="False"
+               VerticalOffset="{Binding ActualHeight,
+                                        ElementName=popup}">
+
             <Rectangle Width="120" Height="120">
                 <Rectangle.Fill>
-                    <VisualBrush Stretch="Uniform"
-                                 Visual="{Binding ElementName=PopupLayoutCtrl}" />
+                    <VisualBrush Stretch="Uniform" Visual="{Binding ElementName=PopupLayoutCtrl}" />
                 </Rectangle.Fill>
             </Rectangle>
         </Popup>
-
-        <TextBlock Grid.Column="0"
-                   Grid.Row="1"
-                   Text="Placement By Style" />
-
-        <Button Grid.Column="1"
-                   Grid.Row="1"
-                Name="StyleButton"
-                Click="StyleButton_Click"
-                   Content="RightBottom" />
         <Popup Name="stylePopup"
-               StaysOpen="False"
                PlacementTarget="{Binding ElementName=StyleButton}"
+               StaysOpen="False"
                Style="{StaticResource rightBottom}">
             <Grid Background="Green">
                 <TextBlock Text="ポップアップのテスト" />
+            </Grid>
+        </Popup>
+        <Button Name="popup"
+                Grid.Column="1"
+                Click="popup_Click"
+                Content="TEST" />
+
+        <TextBlock Grid.Row="1"
+                   Grid.Column="0"
+                   Text="Placement By Style" />
+
+        <Button Name="StyleButton"
+                Grid.Row="1"
+                Grid.Column="1"
+                Click="StyleButton_Click"
+                Content="RightBottom" />
+
+        <TextBlock Grid.Row="2"
+                   Grid.Column="0"
+                   Text="Draggable" />
+
+        <Button Name="dragPopupButton"
+                Grid.Row="2"
+                Grid.Column="1"
+                Click="dragPopup_Click"
+                Content="DraggablePopup" />
+        
+        <Popup Placement="Bottom"
+               PlacementTarget="{Binding ElementName=dragPopupButton}"
+               StaysOpen="False"
+               Name="dragPopup">
+            <i:Interaction.Behaviors>
+                <b:DraggablePopupBehavior />
+            </i:Interaction.Behaviors>
+
+            <Grid Background="LightGray"
+                  >
+                <TextBlock Text="TEST!!"
+                           Margin="16"
+                           FontSize="34"/>
             </Grid>
         </Popup>
 

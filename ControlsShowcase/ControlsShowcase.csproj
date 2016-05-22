@@ -113,6 +113,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Behaviors\DraggablePopupBehavior.cs" />
     <Compile Include="Behaviors\GroupHeaderFrozenBehavior.cs" />
     <Compile Include="Behaviors\UpdateOnLostKeyboardFocusBehavior.cs" />
     <Compile Include="Behaviors\UpdateSource4DecimalBehavior.cs" />
@@ -153,6 +154,10 @@
     <Compile Include="Views\TemplateInputNavigationTabView.xaml.cs">
       <DependentUpon>TemplateInputNavigationTabView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Styles\Controls.Calendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\Controls.Expander.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

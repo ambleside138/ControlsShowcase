@@ -34,5 +34,10 @@ namespace ControlsShowcase.Views
         {
             stylePopup.IsOpen = true;
         }
+
+        private void dragPopup_Click(object sender, RoutedEventArgs e)
+        {
+            dragPopup.IsOpen = true;
+        }
     }
 }
