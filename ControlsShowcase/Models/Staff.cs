@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using Livet;
+using System.Collections.ObjectModel;
 
 namespace ControlsShowcase.Models
 {
@@ -56,6 +57,23 @@ namespace ControlsShowcase.Models
         }
         #endregion
 
+        #region Age変更通知プロパティ
+        private int _Age;
+
+        public int Age
+        {
+            get
+            { return _Age; }
+            set
+            { 
+                if (_Age == value)
+                    return;
+                _Age = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
         #region Department変更通知プロパティ
         private string _Department;
 
@@ -73,11 +91,32 @@ namespace ControlsShowcase.Models
         }
         #endregion
 
+        #region Comments変更通知プロパティ
+        private ObservableCollection<string> _Comments = new ObservableCollection<string>();
+
+        public ObservableCollection<string> Comments
+        {
+            get
+            { return _Comments; }
+            set
+            { 
+                if (_Comments == value)
+                    return;
+                _Comments = value;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion
+
+
+
 
         public Staff()
         {
             _IdGen++;
             _Id = _IdGen;
+
+            Age = new Random().Next(20, 100);
         }
     }
 }

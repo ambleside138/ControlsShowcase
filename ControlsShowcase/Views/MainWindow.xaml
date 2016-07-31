@@ -107,9 +107,9 @@
                 <v:FocusTabView />
             </TabItem>
 
-            <TabItem Header="CapsLock">
+            <!--<TabItem Header="CapsLock">
                 <v:CapsLockTabView />
-            </TabItem>
+            </TabItem>-->
 
             <TabItem Header="GroupItem">
                 <v:GroupItemTabView />
@@ -123,9 +123,11 @@
                 <v:TemplateInputNavigationTabView />
             </TabItem>
 
-            <TabItem Header="ProgressBar">
+            <!--<TabItem Header="ProgressBar">
                 <v:ProgressBarTabView />
-            </TabItem>
+            </TabItem>-->
+            
+            
         </TabControl>
 
         <!--Footer-->

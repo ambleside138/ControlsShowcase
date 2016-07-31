@@ -5,8 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:controls="http://schemes.grabacr.net/winfx/2014/controls"
              xmlns:local="clr-namespace:ControlsShowcase.Views"
+             xmlns:vm="clr-namespace:ControlsShowcase.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <vm:ExpanderTabViewModel />
+    </UserControl.DataContext>
+    
     <Grid>
         <Grid.Resources>
             <Style x:Key="StretchExpanderStyleKey2" TargetType="{x:Type Expander}" >
@@ -102,6 +107,151 @@
                     </StackPanel>
                 </Expander.Content>
             </Expander>
+
+            <TextBlock Text="Expander Layout Performance" />
+            <Button Content="表示"
+                    Click="ShowButton_Click"
+                    Name="ShowButton" />
+
+            <Popup Name="ExpanderPopup"
+                   PlacementTarget="{Binding ElementName=ShowButton}"
+                   Placement="Bottom"
+                   StaysOpen="False"
+                   Width="640"
+                   Height="480"
+                   DataContext="{Binding DataContext, ElementName=ShowButton}">
+                <Border BorderThickness="2"
+                        BorderBrush="{DynamicResource BorderBrushKey}"
+                        Padding="8"
+                        Background="{DynamicResource ThemeBrushKey}">
+                    <TabControl ItemsSource="{Binding CompanyTabs}">
+                        <TabControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" />
+                            </DataTemplate>
+                        </TabControl.ItemTemplate>
+
+                        <TabControl.ContentTemplate>
+                            <DataTemplate>
+                                <ScrollViewer HorizontalScrollBarVisibility="Visible"
+                                              VerticalScrollBarVisibility="Visible">
+                                    <ItemsControl ItemsSource="{Binding Departments}"
+                                                  Grid.IsSharedSizeScope="True"
+                                                  Background="DimGray">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel Orientation="Horizontal" />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Background="White"
+                                                        Margin="4"
+                                                        CornerRadius="3"
+                                                        Width="200">
+                                                    <StackPanel>
+                                                        <TextBlock Text="{Binding Name}" />
+
+                                                        <ItemsControl ItemsSource="{Binding StaffGroups}">
+                                                            <ItemsControl.ItemsPanel>
+                                                                <ItemsPanelTemplate>
+                                                                    <StackPanel />
+                                                                </ItemsPanelTemplate>
+                                                            </ItemsControl.ItemsPanel>
+
+                                                            <ItemsControl.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <Border BorderBrush="Gray"
+                                                                                            BorderThickness="2"
+                                                                                            CornerRadius="3"
+                                                                                            Background="Snow"
+                                                                                            Margin="4">
+                                                                        <Expander Margin="2">
+                                                                            <Expander.Header>
+                                                                                <TextBlock Text="{Binding Name}" />
+                                                                            </Expander.Header>
+
+                                                                            <Expander.Content>
+                                                                                <StackPanel>
+
+
+                                                                                    <ItemsControl ItemsSource="{Binding Staffs}">
+                                                                                        <ItemsControl.ItemsPanel>
+                                                                                            <ItemsPanelTemplate>
+                                                                                                <StackPanel />
+                                                                                            </ItemsPanelTemplate>
+                                                                                        </ItemsControl.ItemsPanel>
+
+                                                                                        <ItemsControl.ItemTemplate>
+                                                                                            <DataTemplate>
+                                                                                                <StackPanel >
+                                                                                                    <Grid>
+                                                                                                        <Grid.RowDefinitions>
+                                                                                                            <RowDefinition Height="Auto" />
+                                                                                                            <RowDefinition />
+                                                                                                        </Grid.RowDefinitions>
+                                                                                                        
+                                                                                                        <Grid.ColumnDefinitions>
+                                                                                                            <ColumnDefinition SharedSizeGroup="Id" />
+                                                                                                            <ColumnDefinition SharedSizeGroup="Name" />
+                                                                                                            <ColumnDefinition SharedSizeGroup="Age" />
+                                                                                                            <ColumnDefinition SharedSizeGroup="Memo" />
+                                                                                                            <ColumnDefinition  />
+                                                                                                        </Grid.ColumnDefinitions>
+
+                                                                                                        <TextBlock Text="{Binding Id}" />
+                                                                                                        <TextBlock Grid.Column="1" Text="{Binding Name}" />
+                                                                                                        <TextBlock Grid.Column="2" Text="{Binding Age}" />
+                                                                                                        <TextBlock Grid.Column="3" Text="{Binding Memo}" />
+
+                                                                                                        <ItemsControl Grid.Column="4"
+                                                                                                                      Grid.RowSpan="2"
+                                                                                                                      ItemsSource="{Binding Comments}">
+                                                                                                            <ItemsControl.ItemsPanel>
+                                                                                                                <ItemsPanelTemplate>
+                                                                                                                    <StackPanel />
+                                                                                                                </ItemsPanelTemplate>
+                                                                                                            </ItemsControl.ItemsPanel>
+
+                                                                                                            <ItemsControl.ItemTemplate>
+                                                                                                                <DataTemplate>
+                                                                                                                    <TextBlock Text="{Binding}" />
+                                                                                                                </DataTemplate>
+                                                                                                            </ItemsControl.ItemTemplate>
+                                                                                                        </ItemsControl>
+
+                                                                                                    </Grid>
+
+                                                                                                </StackPanel>
+
+                                                                                            </DataTemplate>
+                                                                                        </ItemsControl.ItemTemplate>
+                                                                                    </ItemsControl>
+
+
+                                                                                    <ItemsControl ItemsSource="{Binding Comments}">
+
+                                                                                    </ItemsControl>
+                                                                                </StackPanel>
+                                                                            </Expander.Content>
+                                                                        </Expander>
+                                                                    </Border>
+                                                                    
+                                                                </DataTemplate>
+                                                            </ItemsControl.ItemTemplate>
+                                                        </ItemsControl>
+                                                    </StackPanel>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </ScrollViewer>
+                            </DataTemplate>
+                        </TabControl.ContentTemplate>
+                    </TabControl>
+                </Border>
+            </Popup>
         </StackPanel>
     </Grid>
 </UserControl>

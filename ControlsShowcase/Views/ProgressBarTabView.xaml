@@ -22,6 +22,15 @@
                         HorizontalAlignment="Left"
                         Margin="4"
                         Padding="8 4">
+                    <Button.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="TEST1" />
+                            <MenuItem Header="TEST2">
+                                <MenuItem Header="Child" />
+                            </MenuItem>
+                        </ContextMenu>
+                    </Button.ContextMenu>
+                    
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <l:LivetCallMethodAction MethodTarget="{Binding}"
@@ -48,6 +57,8 @@
                          VerticalAlignment="Top" Width="200" Margin="5"
                          IsIndeterminate="True"/>
             <TextBlock Height="23" Name="textBlock1" Text="{Binding Status}" Margin="5" />
+
+
         </StackPanel>
     </Grid>
 </UserControl>

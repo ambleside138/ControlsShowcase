@@ -119,8 +119,12 @@
     <Compile Include="Behaviors\UpdateOnLostKeyboardFocusBehavior.cs" />
     <Compile Include="Behaviors\UpdateSource4DecimalBehavior.cs" />
     <Compile Include="Controls\HeaderAdorner.cs" />
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\StaffGroup.cs" />
     <Compile Include="Utils\LogicalTreeUtil.cs" />
     <Compile Include="Utils\VisualTreeUtil.cs" />
+    <Compile Include="ViewModels\ExpanderTabViewModel.cs" />
     <Compile Include="ViewModels\FocusTabViewModel.cs" />
     <Compile Include="ViewModels\GroupItemTabViewModel.cs" />
     <Compile Include="ViewModels\NavigateAnimationTabViewModel.cs" />

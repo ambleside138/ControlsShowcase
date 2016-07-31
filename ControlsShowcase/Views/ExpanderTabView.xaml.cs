@@ -24,5 +24,10 @@ namespace ControlsShowcase.Views
         {
             InitializeComponent();
         }
+
+        private void ShowButton_Click(object sender, RoutedEventArgs e)
+        {
+            ExpanderPopup.IsOpen = true;
+        }
     }
 }
